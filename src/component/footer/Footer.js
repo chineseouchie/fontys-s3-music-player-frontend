@@ -55,7 +55,7 @@ class Footer extends Component {
 
 			audio.src = url;
 			audio.play();
-			audio.volume = this.state.volume / 100;
+			audio.volume = !(Number.isNaN(this.state.volume) || this.state.volume == null) ? this.state.volume / 100 : this.state.defaultVolume / 100;
 			
 			this.setState({
 				songPlaying: true
@@ -121,8 +121,7 @@ class Footer extends Component {
 
 	render() {
 		let { song } = this.state;
-		console.log();
-		console.log(!(Number.isNaN(this.state.volume) || this.state.volume == null) ? this.state.volume : this.state.defaultVolume);
+
 		return(
 		<footer>
 			<SockJsClient
