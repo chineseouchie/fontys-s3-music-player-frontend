@@ -7,5 +7,5 @@ stages:
 test:
   stage: test
   script:
-    - npm install
+    - npm ci
     - CI=true npm test
