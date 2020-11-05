@@ -121,6 +121,8 @@ class Footer extends Component {
 
 	render() {
 		let { song } = this.state;
+		console.log();
+		console.log(!(Number.isNaN(this.state.volume) || this.state.volume == null) ? this.state.volume : this.state.defaultVolume);
 		return(
 		<footer>
 			<SockJsClient
@@ -176,7 +178,7 @@ class Footer extends Component {
 					type="range"
 					min="0"
 					max="100"
-					value={this.state.volume !== null ? this.state.volume : this.state.defaultVolume}
+					value={!(Number.isNaN(this.state.volume) || this.state.volume == null) ? this.state.volume : this.state.defaultVolume}
 					name="volume"
 					onChange={this.changeVolume}/>
 				</div>

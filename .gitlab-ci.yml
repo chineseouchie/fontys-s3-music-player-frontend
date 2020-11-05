@@ -1,0 +1,11 @@
+image: node:10.16.0
+
+stages:
+  - test
+  # - build
+
+test:
+  stage: test
+  script:
+    - npm install
+    - CI=true npm test

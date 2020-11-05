@@ -6,14 +6,18 @@ afterEach(cleanup)
 
 test('Renders song data', () => {
 	const songData = {
-		songName: "Blueming",
-		artist: "IU",
+		accountId: 18,
+		artistName: "Akie??",
+		dateAdded: "26-10-2020",
+		duration: "4:32",
+		name: "Ama no Zaku",
+		songId: 25,
 	}
 
-	const { getByTestId } = render(<Footer valueFromParent={songData} />);
+	const { getByTestId } = render(<Footer currentSong={songData}/>);
 	const songName = getByTestId("song-name");
 	const artistName = getByTestId("artist-name");
 
-	expect(songName).toHaveTextContent(songData.songName);
-	expect(artistName).toHaveTextContent(songData.artist);
+	expect(songName).toHaveTextContent(songData.name);
+	expect(artistName).toHaveTextContent(songData.artistName);
 });
