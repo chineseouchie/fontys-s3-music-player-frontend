@@ -1,8 +1,5 @@
 image: node:10.16.0
 
-before_script:  
-  - apt-get update -qq && apt-get install
-
 stages:
   - test
   # - build
@@ -10,5 +7,5 @@ stages:
 test:
   stage: test
   script:
-    - yarn install
+    - npm install
     - npm test
