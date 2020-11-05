@@ -7,5 +7,5 @@ stages:
 test:
   stage: test
   script:
-    - npm install
+    - yarn install
     - npm test
