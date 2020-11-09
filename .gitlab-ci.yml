@@ -7,5 +7,5 @@ stages:
 test:
   stage: test
   script:
-    - npm install
+    - npm install --prefer-offline
     - npm test
