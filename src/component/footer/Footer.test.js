@@ -18,6 +18,8 @@ test('Renders song data', () => {
 	const songName = getByTestId("song-name");
 	const artistName = getByTestId("artist-name");
 
+	console.log(songData);
+
 	expect(songName).toHaveTextContent(songData.name);
 	expect(artistName).toHaveTextContent(songData.artistName);
 });
