@@ -9,3 +9,5 @@ test:
   script:
     - yarn install
     - yarn test
+  only:
+    - merge_requests
