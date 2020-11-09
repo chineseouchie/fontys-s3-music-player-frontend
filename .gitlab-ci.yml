@@ -8,4 +8,4 @@ test:
   stage: test
   script:
     - yarn install
-    - npm test
+    - yarn test
