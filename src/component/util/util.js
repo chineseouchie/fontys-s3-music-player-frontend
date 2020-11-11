@@ -18,7 +18,6 @@ export function getByteArray(data) {
 }
 
 export function websocketMessage(data) {
-	console.log(data)
 	let result = {artistName: data.artistName, name: data.name, date: new Date()}
 
 	return result;
