@@ -53,6 +53,5 @@ test('format websocket data', () => {
 		date: new Date(),
 		name: "songName"
 	}
-
 	expect(result).toStrictEqual(expectedResult);
 })
