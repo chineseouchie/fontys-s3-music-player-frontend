@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SockJsClient from 'react-stomp';
 
-import {getTimeFromDate} from '../util/util';
+import {formatIsoDateToTime} from '../util/util';
 class History extends Component {
 	constructor(props) {
 		super()
@@ -37,7 +37,7 @@ class History extends Component {
 			History of: {this.state.websocketId}
 			<div>
 				{this.state.history.map((item, index) =>
-					<div key={index}>{getTimeFromDate(item.date)} {item.artistName} - {item.name}</div>	
+					<div key={index}>{formatIsoDateToTime(item.date)} {item.artistName} - {item.name}</div>	
 				)}
 			</div>
 		</div>;

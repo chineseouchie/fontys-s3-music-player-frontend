@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {formatDate} from '../util/util';
+import {formatIsoDateToDMY} from '../util/util';
 
 class MpLibrary extends Component {
 	constructor(props) {
@@ -19,7 +19,7 @@ class MpLibrary extends Component {
 		.then(result => result.json())
 		.then(data => {
 			data.songs.forEach(item => {
-				item.dateAdded = formatDate(item.dateAdded);
+				item.dateAdded = formatIsoDateToDMY(item.dateAdded);
 			});
 			this.setState({
 				songs: [...data.songs],
