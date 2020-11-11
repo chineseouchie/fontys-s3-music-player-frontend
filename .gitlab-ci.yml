@@ -18,4 +18,3 @@ build:
     - yarn build
   only:
     - production
-    - merge_requests
