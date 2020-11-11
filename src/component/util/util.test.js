@@ -53,5 +53,6 @@ test('format websocket data', () => {
 		date: new Date(),
 		name: "songName"
 	}
+	console.log('ci test');
 	expect(result).toStrictEqual(expectedResult);
 })
