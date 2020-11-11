@@ -11,6 +11,8 @@ test:
     - yarn test
   only:
     - merge_requests
+  except:
+    - production
 
 build:
   stage: build
