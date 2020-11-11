@@ -13,7 +13,6 @@ test:
     - merge_requests
   except:
     - production
-    - master
 
 build:
   stage: build
