@@ -2,7 +2,7 @@ image: node:10.16.0
 
 stages:
   - test
-  # - build
+  - build
 
 test:
   stage: test
@@ -10,4 +10,16 @@ test:
     - yarn install
     - yarn test
   only:
+    - merge_requests
+  except:
+    - production
+
+build:
+  stage: build
+  script:
+    - yarn install
+    - yarn test
+    - yarn build
+  only:
+    - production
     - merge_requests
