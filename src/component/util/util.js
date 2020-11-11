@@ -23,7 +23,7 @@ export function websocketMessage(data) {
 	return result;
 }
 
-export function formatIsoDateToDMY(date) {
+export function formatUnixToDMY(date) {
     let d = new Date(date),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),

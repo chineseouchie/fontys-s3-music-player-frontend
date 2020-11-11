@@ -13,27 +13,38 @@ test('Convert seconds to formatted time', () => {
 })
 
 test('Format iso date to time ', () => {
-	const isoTime = '2020-11-11T09:21:24.811Z';
-	const time = util.formatIsoDateToTime(isoTime);
+	const isoTime1 = '2020-11-11T09:21:24.811Z';
+	const isoTime2 = '2020-11-11T09:21:24Z';
+	const time1 = util.formatIsoDateToTime(isoTime1);
+	const time2 = util.formatIsoDateToTime(isoTime2);
 
-	expect(time).toBe("10:21 AM");
+	expect(time1).toBe("10:21 AM");
+	expect(time2).toBe("10:21 AM");
 })
 
 test('format iso date to day month year ', () => {
-	const isoTime = '2020-10-26 13:59:01.321';
-	const time = util.formatIsoDateToDMY(isoTime);
+	const unix1 = '2020-10-26 13:59:01.321';
+	const unix2 = '2020-10-26 13:59:01';
+	const unix3 = '2020-10-26';
+	const time1 = util.formatUnixToDMY(unix1);
+	const time2 = util.formatUnixToDMY(unix2);
+	const time3 = util.formatUnixToDMY(unix3);
 
-	expect(time).toBe("26-10-2020");
+	const result = '26-10-2020';
+
+	expect(time1).toBe(result);
+	expect(time2).toBe(result);
+	expect(time3).toBe(result);
 })
 
 test('format websocket data', () => {
 	const songData = {
-		accountId: 18,
+		accountId: 1,
 		artistName: "artistName",
 		dateAdded: "26-10-2020",
 		duration: "4:32",
 		name: "songName",
-		songId: 25,
+		songId: 12,
 	}
 	
 	const result = util.websocketMessage(songData);
