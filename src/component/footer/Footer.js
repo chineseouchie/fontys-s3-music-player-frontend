@@ -78,11 +78,16 @@ class Footer extends Component {
 	onPlayPause() {
 		const audio = this.audioRef.current;
 		if (this.state.songPlaying) {
-			audio.pause();
+			if (audio){
+				audio.pause();
+			}
 			this.setState({
 				songPlaying: false
 			})
 		} else {
+			if(audio) {
+				
+			}
 			audio.play();
 			this.setState({
 				songPlaying: true
