@@ -11,14 +11,10 @@ test:
     - yarn test
   only:
     - merge_requests
-  except:
-    - production
 
 build:
   stage: build
   script:
-    - yarn install
-    - yarn test
     - yarn build
   only:
     - production
