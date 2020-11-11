@@ -3,6 +3,7 @@ image: node:10.16.0
 stages:
   - test
   - build
+  - deploy
 
 test:
   stage: test
@@ -15,6 +16,15 @@ test:
 build:
   stage: build
   script:
+    - yarn install
+    - yarn test
     - yarn build
+  only:
+    - production
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying on to server"
   only:
     - production
