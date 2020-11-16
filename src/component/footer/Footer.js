@@ -126,7 +126,6 @@ class Footer extends Component {
 
 	render() {
 		let { song } = this.state;
-		console.log('ci test')
 		return(
 		<footer>
 			<SockJsClient
