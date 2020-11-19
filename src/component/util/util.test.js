@@ -18,8 +18,8 @@ test('Format iso date to time ', () => {
 	const time1 = util.formatIsoDateToTime(isoTime1);
 	const time2 = util.formatIsoDateToTime(isoTime2);
 
-	expect(time1).toBe("10:21 AM");
-	expect(time2).toBe("10:21 AM");
+	expect(time1).toBe("10:21");
+	expect(time2).toBe("10:21");
 })
 
 test('format iso date to day month year ', () => {
