@@ -40,5 +40,5 @@ export function formatUnixToDMY(date) {
 export function formatIsoDateToTime(date) {
 	let d = new Date(date);
 
-	return d.toLocaleTimeString('nl-NL', {hours12: false, hour: '2-digit', minute: '2-digit'});
+	return d.toLocaleTimeString('nl-NL', {hour: '2-digit', minute: '2-digit'});
 }
