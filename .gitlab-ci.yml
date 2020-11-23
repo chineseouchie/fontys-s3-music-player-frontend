@@ -4,7 +4,7 @@ stages:
   - test
   - build
   - deploy
-  - eslint
+  - lint
 
 test:
   stage: test
@@ -15,11 +15,9 @@ test:
     - merge_requests
 
 eslint:
-  stage: eslint
+  stage: lint
   script:
     - npm run lint
-  only:
-    - merge_requests
 
 build:
   stage: build
