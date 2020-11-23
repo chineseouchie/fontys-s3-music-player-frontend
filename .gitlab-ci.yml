@@ -17,7 +17,7 @@ test:
 eslint:
   stage: lint
   script:
-    - yarn install eslint
+    - yarn add eslint
     - yarn run lint
 
 build:
