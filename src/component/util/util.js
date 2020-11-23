@@ -9,8 +9,8 @@ export function formatTime(seconds) {
 	let minutes = Math.floor(seconds / 60);
 	minutes = (minutes >= 10) ? minutes : minutes;
 	seconds = Math.floor(seconds % 60);
-	seconds = (seconds >= 10) ? seconds : "0" + seconds;
-	return minutes + ":" + seconds;
+	seconds = (seconds >= 10) ? seconds : '0' + seconds;
+	return minutes + ':' + seconds;
 }
 
 export function getByteArray(data) {
@@ -18,7 +18,7 @@ export function getByteArray(data) {
 }
 
 export function websocketMessage(data) {
-	let result = {artistName: data.artistName, name: data.name, date: new Date()}
+	let result = {artistName: data.artistName, name: data.name, date: new Date()};
 
 	return result;
 }

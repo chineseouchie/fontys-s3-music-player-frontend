@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "jest": "jest --watchAll",
-    "eject": "react-scripts eject"
+	"eject": "react-scripts eject",
+	"lint": "eslint **/*.js **/*.jsx"
   },
   "eslintConfig": {
     "extends": "react-app"

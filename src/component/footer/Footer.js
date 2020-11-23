@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './Footer.css';
 import SockJsClient from 'react-stomp';
 import {convertMinutesToSeconds, formatTime, getByteArray, websocketMessage} from '../util/util';
-import { faHeart, faVolumeUp, faBackward, faForward, faPlay, faPause  } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faVolumeUp, faBackward, faForward, faPlay, faPause  } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Footer extends Component {
 	constructor(props) {
@@ -14,7 +14,7 @@ class Footer extends Component {
 			songPlaying: false,
 			volume: null,
 			defaultVolume: 30
-		}
+		};
 
 		this.audioRef = React.createRef();
 		this.sockJs = React.createRef();
@@ -26,7 +26,7 @@ class Footer extends Component {
 	}
 
 	static getDerivedStateFromProps(nextProps){
-		return {song: nextProps.currentSong}
+		return {song: nextProps.currentSong};
 	}
 
 	componentDidUpdate(prev) {
@@ -38,17 +38,17 @@ class Footer extends Component {
 	componentDidMount() {
 		this.setState({
 			volume: parseFloat(localStorage.getItem('joeyify-volume'))
-		})
+		});
 	}
 
 	playSongById(id) {
-		console.log('loading')
+		console.log('loading');
 		const audio = this.audioRef.current;
 
 		fetch(`http://localhost:8080/song/play?songId=${id}`)
 		.then(result => result.json())
 		.then(data => {
-			let byteArray = JSON.parse(data.songData)
+			let byteArray = JSON.parse(data.songData);
 			
 			const blob = new Blob([getByteArray(byteArray)], { type: 'audio/mpeg' });
 			const url = URL.createObjectURL(blob);
@@ -59,11 +59,11 @@ class Footer extends Component {
 			
 			this.setState({
 				songPlaying: true
-			})
-			console.log('loaded')
+			});
+			console.log('loaded');
 
-			this.sendMessage(JSON.stringify(websocketMessage(this.state.song)))
-		})
+			this.sendMessage(JSON.stringify(websocketMessage(this.state.song)));
+		});
 	}
 
 	updateTime() {
@@ -71,7 +71,7 @@ class Footer extends Component {
 		const currentTime = document.getElementById('currentTime');
 		const progress = document.getElementById('song-progress');
 
-		currentTime.innerHTML = formatTime(audio.currentTime)
+		currentTime.innerHTML = formatTime(audio.currentTime);
 		progress.value = Math.floor(audio.currentTime);
 	}
 
@@ -83,7 +83,7 @@ class Footer extends Component {
 			}
 			this.setState({
 				songPlaying: false
-			})
+			});
 		} else {
 			if(audio) {
 				
@@ -91,7 +91,7 @@ class Footer extends Component {
 			audio.play();
 			this.setState({
 				songPlaying: true
-			})
+			});
 		}
 
 	}
@@ -115,7 +115,7 @@ class Footer extends Component {
 		audio.volume = newVolume / 100;
 		this.setState({
 			volume: newVolume
-		})
+		});
 
 		localStorage.setItem('joeyify-volume', newVolume);
 	}
@@ -173,7 +173,7 @@ class Footer extends Component {
 
 			<div className="extra-button">
 				<button>
-					<FontAwesomeIcon className={`heart ${song.liked ? "heart-active" : "" }`} icon={faHeart} />
+					<FontAwesomeIcon className={`heart ${song.liked ? 'heart-active' : '' }`} icon={faHeart} />
 				</button>
 				<div className="volume">
 					<FontAwesomeIcon icon={faVolumeUp} />
@@ -187,7 +187,7 @@ class Footer extends Component {
 				</div>
 			</div>
 		</footer>
-	)
+	);
 	}
 }
 
