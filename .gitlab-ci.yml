@@ -4,12 +4,20 @@ stages:
   - test
   - build
   - deploy
+  - eslint
 
 test:
   stage: test
   script:
     - yarn install
     - yarn test
+  only:
+    - merge_requests
+
+eslint:
+  stage: eslint
+  script:
+    - npm run lint
   only:
     - merge_requests
 

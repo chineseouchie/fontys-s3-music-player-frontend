@@ -85,9 +85,9 @@ class Footer extends Component {
 				songPlaying: false
 			});
 		} else {
-			if(audio) {
+			// if(audio) {
 				
-			}
+			// }
 			audio.play();
 			this.setState({
 				songPlaying: true

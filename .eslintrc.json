@@ -1,7 +1,30 @@
 {
-	"extends": "react-app",
+    "env": {
+        "browser": true,
+        "node": true,
+		"es6": true,
+		"jest/globals": true
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"parser": "babel-eslint",
+    "extends": [
+        // "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "sourceType": "module"
+	},
 	"rules": {
-        "semi": ["warn", "always"],
-        "quotes": ["warn", "single"]
-    }
+		"semi": ["warn", "always"],
+		"quotes": ["warn", "single"],
+		"react/prop-types": 0
+	},
+	"plugins": [
+		"jest",
+		"react"
+	]
 }
