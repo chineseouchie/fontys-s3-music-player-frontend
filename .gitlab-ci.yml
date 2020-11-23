@@ -17,6 +17,7 @@ test:
 eslint:
   stage: lint
   script:
+    - npm install eslint
     - npm run lint
 
 build:
