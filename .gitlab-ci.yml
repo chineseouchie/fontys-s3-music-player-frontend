@@ -1,16 +1,16 @@
 image: node:10.16.0
 
 stages:
+  - lint
   - test
   - build
   - deploy
-  - lint
 
 test:
   stage: test
   script:
-    - yarn install
-    - yarn test
+    - docker build --target test -t musicplayer-test .
+    - docker image prune
   only:
     - merge_requests
 
@@ -21,9 +21,19 @@ eslint:
     - yarn run lint
 
 docker:
+  stage: build
+  script:
+    - docker build --target runner -t musicplayer .
+    - docker image prune
+    only:
+    - production
+
+deploy:
   stage: deploy
   script:
-    - docker build . -t musicplayer
+    - echo "Deploying on to server"
+  only:
+    - production
 
 # build:
 #   stage: build
@@ -33,10 +43,3 @@ docker:
 #     - yarn build
 #   only:
 #     - production
-
-deploy:
-  stage: deploy
-  script:
-    - echo "Deploying on to server"
-  only:
-    - production
