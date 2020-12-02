@@ -10,7 +10,8 @@ test:
   stage: test
   script:
     - "docker build --target test -t musicplayer-test ."
-    - docker image prune
+    - docker rmi musicplayer-test
+    - docker image prune y
   only:
     - merge_requests
 
@@ -24,7 +25,7 @@ docker:
   stage: build
   script:
     - 'docker build --target runner -t musicplayer .'
-    - "docker image prune"
+    - docker image prune y
   only:
     - production
 
