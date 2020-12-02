@@ -20,6 +20,12 @@ eslint:
     - yarn add eslint
     - yarn run lint
 
+docker:
+  stage:
+    - deploy
+  script:
+    - docker build . -t musicplayer
+
 build:
   stage: build
   script:
