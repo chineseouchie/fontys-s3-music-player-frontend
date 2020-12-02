@@ -9,6 +9,9 @@ COPY . .
 FROM builder as test
 RUN yarn test
 
+FROM builder as lint
+RUN yarn lint
+
 
 FROM builder as runner
 EXPOSE 3000
