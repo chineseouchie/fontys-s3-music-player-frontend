@@ -21,8 +21,7 @@ eslint:
     - yarn run lint
 
 docker:
-  stage:
-    - deploy
+  stage: deploy
   script:
     - docker build . -t musicplayer
 
