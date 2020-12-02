@@ -18,8 +18,9 @@ test:
 eslint:
   stage: lint
   script:
-    - yarn add eslint
-    - yarn run lint
+    - docker build --target lint -t musicplayer-lint .
+    - docker rmi musicplayer-lint
+    - docker image prune -f
 
 dockerbuild:
   stage: build
