@@ -23,9 +23,9 @@ eslint:
 docker:
   stage: build
   script:
-    - "docker build --target runner -t musicplayer ."
-    - docker image prune
-    only:
+    - 'docker build --target runner -t musicplayer .'
+    - "docker image prune"
+  only:
     - production
 
 deploy:
