@@ -9,7 +9,7 @@ stages:
 test:
   stage: test
   script:
-    - "docker build --target test -t musicplayer-test ."
+    - docker build --target test -t musicplayer-test .
     - docker rmi musicplayer-test
     - docker image prune y
   only:
@@ -21,10 +21,10 @@ eslint:
     - yarn add eslint
     - yarn run lint
 
-docker:
+dockerbuild:
   stage: build
   script:
-    - 'docker build --target runner -t musicplayer .'
+    - docker build --target runner -t musicplayer .
     - docker image prune y
   only:
     - production
@@ -35,12 +35,3 @@ deploy:
     - echo "Deploying on to server"
   only:
     - production
-
-# build:
-#   stage: build
-#   script:
-#     - yarn install
-#     - yarn test
-#     - yarn build
-#   only:
-#     - production
