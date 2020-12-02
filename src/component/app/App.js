@@ -14,8 +14,8 @@ class App extends Component {
 	constructor(props){
         super();
         this.state = {
-			song: "",
-        }
+			song: '',
+        };
 	}
 
 	currentSong = (song) => {
@@ -34,7 +34,7 @@ class App extends Component {
 							</Router>
 						</div>
 					</div>
-				)
+				);
 			default:
 				return (
 					<div className="App">

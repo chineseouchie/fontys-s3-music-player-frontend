@@ -4,16 +4,16 @@ import SockJsClient from 'react-stomp';
 import {formatIsoDateToTime} from '../util/util';
 class History extends Component {
 	constructor(props) {
-		super()
+		super();
 
 		this.state = {
 			websocketId: props.match.params.id,
 			history: []
-		}
+		};
 	}
 
 	static getDerivedStateFromProps(nextProps){
-		return {websocketId: nextProps.match.params.id}
+		return {websocketId: nextProps.match.params.id};
 	}
 
 	onMessage(data) {
@@ -22,11 +22,11 @@ class History extends Component {
 
 		this.setState({
 			history: history
-		})
+		});
 	}
 
 	render() {
-		console.log(this.state.history)
+		console.log(this.state.history);
 		return <div>
 			<SockJsClient
 				url='http://localhost:8080/websocket'

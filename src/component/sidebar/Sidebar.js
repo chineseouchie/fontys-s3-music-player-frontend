@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './Sidebar.css';
 import {Link} from 'react-router-dom';
 
-import { faHeart, faHome, faList, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faHome, faList, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Sidebar extends Component {
 	componentDidMount() {
@@ -12,8 +12,8 @@ class Sidebar extends Component {
 	
 	render() {
 		let playlist = [
-			{id: 1, name: "kpop"},
-			{id: 2, name: "test"},
+			{id: 1, name: 'kpop'},
+			{id: 2, name: 'test'},
 		];
 
 		return <div className="sidebar">
@@ -52,7 +52,7 @@ class Sidebar extends Component {
 					</div>
 				</div>
 				
-		</div>
+		</div>;
 	}
 }
 

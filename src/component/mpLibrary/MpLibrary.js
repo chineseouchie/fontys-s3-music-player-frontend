@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {formatUnixToDMY} from '../util/util';
 
 class MpLibrary extends Component {
@@ -7,7 +7,7 @@ class MpLibrary extends Component {
 		this.state = {
 			songs: {},
 			loaded: false
-		}
+		};
 
 	}
 
@@ -15,7 +15,7 @@ class MpLibrary extends Component {
 		// const formdata = new FormData();
 		// formdata.append('userId', 18);
 
-		fetch(`http://localhost:8080/song?userId=18`)
+		fetch('http://localhost:8080/song?userId=18')
 		.then(result => result.json())
 		.then(data => {
 			data.songs.forEach(item => {
@@ -24,8 +24,8 @@ class MpLibrary extends Component {
 			this.setState({
 				songs: [...data.songs],
 				loaded: true
-			})
-		})
+			});
+		});
 	}
 
 	onClickSong = (id, e) => {
@@ -54,12 +54,12 @@ class MpLibrary extends Component {
 						<div className="song-time flex-center">{item.duration}</div>
 					</div>
 				) }
-			</div>
+			</div>;
 		}
 
 		return <div>
 			{data}
-		</div>
+		</div>;
 	}
 }
 
