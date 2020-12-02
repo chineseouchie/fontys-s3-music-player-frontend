@@ -1,16 +1,17 @@
 image: node:10.16.0
 
 stages:
+  - lint
   - test
   - build
   - deploy
-  - lint
 
 test:
   stage: test
   script:
-    - yarn install
-    - yarn test
+    - docker build --target test -t musicplayer-test .
+    - docker rmi musicplayer-test
+    - docker image prune -f
   only:
     - merge_requests
 
@@ -20,12 +21,11 @@ eslint:
     - yarn add eslint
     - yarn run lint
 
-build:
+dockerbuild:
   stage: build
   script:
-    - yarn install
-    - yarn test
-    - yarn build
+    - docker build --target runner -t musicplayer .
+    - docker image prune -f
   only:
     - production
 

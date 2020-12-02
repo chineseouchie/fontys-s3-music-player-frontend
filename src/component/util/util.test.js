@@ -22,10 +22,16 @@ test('Format iso date to time ', () => {
 	const time3 = util.formatIsoDateToTime(isoTime3);
 	const time4 = util.formatIsoDateToTime(isoTime4);
 
-	expect(time1).toBe('10:21');
-	expect(time2).toBe('10:21');
-	expect(time3).toBe('16:21');
-	expect(time4).toBe('16:21');
+	const a = new Date(isoTime1).toLocaleTimeString('nl-NL', {hour: '2-digit', minute: '2-digit'});
+	const b = new Date(isoTime2).toLocaleTimeString('nl-NL', {hour: '2-digit', minute: '2-digit'});
+	const c = new Date(isoTime3).toLocaleTimeString('nl-NL', {hour: '2-digit', minute: '2-digit'});
+	const d = new Date(isoTime4).toLocaleTimeString('nl-NL', {hour: '2-digit', minute: '2-digit'});
+	
+
+	expect(time1).toBe(a);
+	expect(time2).toBe(b);
+	expect(time3).toBe(c);
+	expect(time4).toBe(d);
 });
 
 test('format iso date to day month year ', () => {
