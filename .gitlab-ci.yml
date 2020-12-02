@@ -25,14 +25,14 @@ docker:
   script:
     - docker build . -t musicplayer
 
-build:
-  stage: build
-  script:
-    - yarn install
-    - yarn test
-    - yarn build
-  only:
-    - production
+# build:
+#   stage: build
+#   script:
+#     - yarn install
+#     - yarn test
+#     - yarn build
+#   only:
+#     - production
 
 deploy:
   stage: deploy
