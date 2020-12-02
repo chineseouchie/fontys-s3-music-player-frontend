@@ -9,7 +9,7 @@ stages:
 test:
   stage: test
   script:
-    - docker build --target test -t musicplayer-test .
+    - "docker build --target test -t musicplayer-test ."
     - docker image prune
   only:
     - merge_requests
@@ -23,7 +23,7 @@ eslint:
 docker:
   stage: build
   script:
-    - docker build --target runner -t musicplayer .
+    - "docker build --target runner -t musicplayer ."
     - docker image prune
     only:
     - production
