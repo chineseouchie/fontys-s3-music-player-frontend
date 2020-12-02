@@ -12,8 +12,6 @@ test:
     - docker build --target test -t musicplayer-test .
     - docker rmi musicplayer-test
     - docker image prune -f
-  only:
-    - merge_requests
 
 eslint:
   stage: lint
