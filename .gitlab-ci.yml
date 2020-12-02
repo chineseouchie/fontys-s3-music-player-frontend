@@ -6,20 +6,18 @@ stages:
   - build
   - deploy
 
-test:
-  stage: test
-  script:
-    - docker build --target test -t musicplayer-test .
-    - docker rmi musicplayer-test
-    - docker image prune -f
-  only:
-    - merge_requests
-
 eslint:
   stage: lint
   script:
     - docker build --target lint -t musicplayer-lint .
     - docker rmi musicplayer-lint
+    - docker image prune -f
+
+test:
+  stage: test
+  script:
+    - docker build --target test -t musicplayer-test .
+    - docker rmi musicplayer-test
     - docker image prune -f
 
 dockerbuild:
