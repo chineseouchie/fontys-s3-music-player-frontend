@@ -25,7 +25,7 @@ test('Format iso date to time ', () => {
 	const a = new Date(isoTime1).toLocaleTimeString('nl-NL', {hour: '2-digit', minute: '2-digit'});
 	const b = new Date(isoTime2).toLocaleTimeString('nl-NL', {hour: '2-digit', minute: '2-digit'});
 	const c = new Date(isoTime3).toLocaleTimeString('nl-NL', {hour: '2-digit', minute: '2-digit'});
-	const d = new Date(isoTime4).toLocaleTimeString('nl-NL', {hour: '2-digit', minute: '2-digit'});
+	const d = new Date(isoTime1).toLocaleTimeString('nl-NL', {hour: '2-digit', minute: '2-digit'});
 	
 
 	expect(time1).toBe(a);
