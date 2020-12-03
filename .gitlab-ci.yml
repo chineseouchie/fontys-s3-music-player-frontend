@@ -10,10 +10,10 @@ stages:
 eslint:
   stage: lint
   script:
-    - echo "$token" | docker login -u "$user" --password-stdin "$CI_REGISTRY"
     - docker build --target lint -t musicplayer-lint .
     - docker rmi musicplayer-lint
     - docker image prune -f
+
 
 test:
   stage: test
@@ -33,9 +33,11 @@ dockerbuild:
 deploy:
   stage: deploy
   before_script:
-    - docker login -u "$user" -p "$token"
-    - docker logout
+    - echo "$token" | docker login -u "$user" --password-stdin "$CI_REGISTRY"
   script:
     - echo "Deploying on to server"
+    - docker push "$repo"
+  after_script:
+    - docker logout
   only:
     - production
