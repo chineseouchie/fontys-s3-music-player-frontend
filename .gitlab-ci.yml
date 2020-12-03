@@ -6,9 +6,11 @@ stages:
   - build
   - deploy
 
+
 eslint:
   stage: lint
   script:
+    - docker login -u "$user" -p "$token"
     - docker build --target lint -t musicplayer-lint .
     - docker rmi musicplayer-lint
     - docker image prune -f
@@ -30,6 +32,9 @@ dockerbuild:
 
 deploy:
   stage: deploy
+  before_script:
+    - docker login -u "$user" -p "$token"
+    - docker logout
   script:
     - echo "Deploying on to server"
   only:
