@@ -10,7 +10,7 @@ stages:
 eslint:
   stage: lint
   script:
-    - docker login -u "$user" -p "$token" $CI_REGISTRY
+    - echo "$token" | docker login -u "$user" --password-stdin "$CI_REGISTRY"
     - docker build --target lint -t musicplayer-lint .
     - docker rmi musicplayer-lint
     - docker image prune -f
