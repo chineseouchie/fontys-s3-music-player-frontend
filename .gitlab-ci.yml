@@ -25,7 +25,7 @@ test:
 dockerbuild:
   stage: build
   script:
-    - docker build --target runner -t musicplayer .
+    - docker build --target runner -t ouchie/musicplayer .
     - docker image prune -f
   only:
     - production
