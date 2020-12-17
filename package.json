@@ -6,6 +6,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "@sentry/react": "^5.29.1",
+    "@sentry/tracing": "^5.29.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -23,7 +25,8 @@
     "test": "react-scripts test --watchAll=false",
     "jest": "jest --watchAll",
     "eject": "react-scripts eject",
-    "lint": "eslint **/*.{jsx,js}"
+	"lint": "eslint **/*.{jsx,js}",
+	"testt": "react-scripts test --coverage --testResultsProcessor ./node_modules/jest-sonar-reporter/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,6 +48,14 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^6.6.0",
-    "eslint-plugin-react": "^7.21.5"
-  }
+    "eslint-plugin-react": "^7.21.5",
+    "jest-sonar-reporter": "^2.0.0"
+  },
+  "jestSonar": {
+    "sonar56x": true,
+    "reportPath": "testResults",
+    "reportFile": "sonar-report.xml",
+    "indent": 4
+  },
+  "testResultsProcessor": "jest-sonar-reporter"
 }
