@@ -37,7 +37,6 @@ class App extends Component {
 			default:
 				return (
 					<div className="App">
-						docker watchtower test
 						<Router>
 							<div className="content">
 								<Sidebar />
